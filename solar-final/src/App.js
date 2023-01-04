@@ -1,5 +1,5 @@
 import React from "react";
-import PlanetBar from "./PlanetBar";
+import BodyBar from "./BodyBar";
 
 export default function App() {
 
@@ -7,7 +7,7 @@ export default function App() {
     <div>
       <header>
         <h3>Space Travel Simulator</h3>
-        <PlanetBar/>
+        <BodyBar/>
       </header>
     </div>
   );
