@@ -6,7 +6,19 @@ export default function App() {
     <div>
       <header>
         <h3>Space Travel Simulator</h3>
+        <PlanetBar/>
       </header>
     </div>
   );
+}
+
+
+function PlanetBar(){
+
+
+  return(
+    <div>
+      PlanetBar
+    </div>
+  )
 }
