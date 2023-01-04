@@ -55,11 +55,12 @@ export default function BodyBar(){
     return(
         <div className="body-card">
             <div 
-                className="body-name"
+                className="body-name"s
                 style={{opacity: mouseOverText}}
             >
                 {body.name}
             </div>
+            <h1>Harry</h1>
             <img 
                 className="body-image" 
                 src={body.image} 
