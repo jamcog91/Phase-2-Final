@@ -79,8 +79,10 @@ export default function BodyBar(){
     return(
         <div className="body-thumbnails">
             <div className="body-name" style={{opacity: mouseOverText}}>
+
                 {body.name}
             </div>
+            <h1>Harry</h1>
             <img 
                 className="body-image" 
                 src={body.image} 

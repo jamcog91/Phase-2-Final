@@ -1,5 +1,6 @@
 import React from "react";
 import BodyBar from "./BodyBar";
+import PlanetCards from "./PlanetCards"
 
 export default function App() {
 
@@ -9,6 +10,7 @@ export default function App() {
         <h3>Space Travel Simulator</h3>
         <BodyBar/>
       </header>
+      <PlanetCards />
     </div>
   );
 }
