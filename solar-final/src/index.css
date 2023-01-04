@@ -14,3 +14,13 @@ header {
     font-size: 30px;
     font-family: Copperplate, Papyrus, fantasy;
 }
+
+.planet-list {
+    display: flex;    
+    overflow-x: scroll;
+    margin: 1rem;    
+}
+
+.planet-card{        
+    margin:auto;
+}

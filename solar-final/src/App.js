@@ -1,4 +1,5 @@
 import React from "react";
+import PlanetBar from "./PlanetBar";
 
 export default function App() {
 
@@ -13,12 +14,3 @@ export default function App() {
 }
 
 
-function PlanetBar(){
-
-
-  return(
-    <div>
-      PlanetBar
-    </div>
-  )
-}
