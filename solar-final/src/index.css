@@ -15,12 +15,27 @@ header {
     font-family: Copperplate, Papyrus, fantasy;
 }
 
-.planet-list {
+.body-list {
     display: flex;    
     overflow-x: scroll;
     margin: 1rem;    
 }
 
-.planet-card{        
+.body-card{        
     margin:auto;
+}
+
+.body-image {    
+    height: 150px;    
+    cursor: pointer;
+}
+
+.body-name{
+    width: 100px;
+    position: relative;
+    font-size: 20pt;
+    top: 90px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
 }
