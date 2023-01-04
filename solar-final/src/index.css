@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+    color:rgb(255, 255, 255); 
+    background-color: rgb(0, 0, 0);    	
+}
+
+header {
+    display: block;
+    margin: auto;
+    width: 90%;
+    padding: 0.5rem;    
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-family: Copperplate, Papyrus, fantasy;
+}
+
+.planet-list {
+    display: flex;    
+    overflow-x: scroll;
+    margin: 1rem;    
+}
+
+.planet-card{        
+    margin:auto;
+}
