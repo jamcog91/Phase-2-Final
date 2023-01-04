@@ -6,7 +6,7 @@ function PlanetCards() {
                 <div class="card"></div>
                     <div class="planet"></div>
                         <div class="circle"></div>
-                    <img  class ="main-planet-detail-image"  alt="adidas" />
+                    <img  class ="main-planet-detail-image"  alt="planet image" />
                 <div id="first-main-planet-info" class="info"></div>
             <h1 class="main-planet-name">Insert Planet Name Here</h1>            
         <div class="facts"></div>
