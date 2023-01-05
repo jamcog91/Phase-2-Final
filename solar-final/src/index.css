@@ -18,7 +18,7 @@ header {
 .body-list {
     display: flex;    
     overflow-x: scroll;
-    margin: 1rem;    
+    margin: 0rem;    
 }
 
 .body-thumbnails{        
@@ -38,4 +38,23 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
+}
+
+.moon-image {
+    height: 75px;
+    cursor: pointer;
+}
+
+.moon-name {
+    width: 70px;
+    position: relative;
+    font-size: 15pt;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.select {
+    color: red;
 }
