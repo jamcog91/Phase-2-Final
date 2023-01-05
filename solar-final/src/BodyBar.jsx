@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function BodyBar({planetType, clickedBody, setClickedBody}){
+export default function BodyBar({planetType, clickedBody, setClickedBody, setClickedbodyObject}){
 
     const [planetsArray, setPlanetsArray] = useState([])
     const [dwarfPlanetsArray, setDwarfPlanetsArray] = useState([])
@@ -58,7 +58,7 @@ export default function BodyBar({planetType, clickedBody, setClickedBody}){
     function populateBodyList(array){
         return array.map((body) => {
             return(
-                <BodyCard key={body.id} body={body} setClickedBodyName={setClickedBodyName}/>
+                <BodyCard key={body.id} body={body} setClickedBodyName={setClickedBodyName} clickedBody={clickedBody} setClickedBody={setClickedBody} setClickedbodyObject={setClickedbodyObject}/>
             )
         }) 
     }
@@ -74,7 +74,7 @@ export default function BodyBar({planetType, clickedBody, setClickedBody}){
             <div className="body-list">
                 {planetsMoonArray.map((body) => {
                     return(
-                        <BodyCard key={body.id} body={body}/>
+                        <BodyCard key={body.id} body={body}  clickedBody={clickedBody} setClickedBody={setClickedBody} setClickedbodyObject={setClickedbodyObject}/>
                     )
                 })}
             </div>
@@ -84,17 +84,28 @@ export default function BodyBar({planetType, clickedBody, setClickedBody}){
 
 
 
-  function BodyCard ({body, setClickedBodyName}){
+    function BodyCard ({body, setClickedBodyName, setClickedBody, clickedBody, setClickedbodyObject}){
 
     const [mouseOverImage, setMouseOverImage] = useState(1)
-    const [mouseOverText, setMouseOverText] = useState(0)   
+    const [mouseOverText, setMouseOverText] = useState(0)
+
+       
+    useEffect(()=>{
+        setClickedbodyObject(clickedBody)
+    },[clickedBody])
+
+    
+    function bodyClicked (body){
+        if (body.type !== "satellite") { setClickedBodyName(body.name) }
+        setClickedBody(body)
+    }
 
     return(
         <div 
             className="body-thumbnails"
-            onClick={()=>(
-                setClickedBodyName(body.name)
-            )}
+            onClick={()=> {
+                bodyClicked(body)
+            }}
             onMouseOver={()=>(
                 setMouseOverImage(.3),
                 setMouseOverText(1)
@@ -118,4 +129,4 @@ export default function BodyBar({planetType, clickedBody, setClickedBody}){
             />
         </div>
     )
-  }
+}
