@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import SettingsBar from "./SettingsBar";
 import BodyBar from "./BodyBar";
-import BodyCard from "./BodyCard"
+import BodyInfoCard from "./BodyInfoCard"
 
 export default function App() {
 
   const [planetType, setPlanetType] = useState('planets')
-  const [clickedBody, setClickedBody] = useState("")
+  const [clickedBody, setClickedBody] = useState()
 
   return (
     <div>
@@ -15,7 +15,7 @@ export default function App() {
         <SettingsBar setPlanetType={setPlanetType}/>
         <BodyBar planetType={planetType} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
       </header>
-      <BodyCard clickedBody={clickedBody}/>
+      <BodyInfoCard clickedBody={clickedBody}/>
     </div>
   );
 }

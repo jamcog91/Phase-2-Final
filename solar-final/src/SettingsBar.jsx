@@ -5,9 +5,6 @@ import MenuItem from '@mui/material/MenuItem';
 import { useState, useEffect } from 'react';
 
 
-
-
-
 export default function SettingsBar({ setPlanetType}) {
 
     const [dropDownValue, setDropdownValue] = useState('');
