@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function BodyBar(){
+export default function BodyBar({planetType}){
 
     const [planetsArray, setPlanetsArray] = useState([])
     const [dwarfPlanetsArray, setDwarfPlanetsArray] = useState([])
@@ -36,13 +36,31 @@ export default function BodyBar(){
     
 
     return(
-      <div className="body-list">
-        {planetsArray.map((body) => {
-            return(
-                <BodyCard key={body.id} body={body}/>
-            )
-        })}
-      </div>
+        <>
+            <div className="body-list">
+                {planetType === "dwarfPlanets"  
+                    ?
+                        dwarfPlanetsArray.map((body) => {
+                        return(
+                            <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
+                        )
+                    }) 
+                    :
+                    planetsArray.map((body) => {
+                        return(
+                            <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
+                        )
+                    })         
+                }
+            </div>
+            <div className="body-list">
+                {planetsMoonArray.map((moon) => {
+                    return(
+                        <MoonCard key={moon.id} moon={moon}/>
+                    )
+                })}
+            </div>
+        </>
     )
   }
 
@@ -53,11 +71,22 @@ export default function BodyBar(){
     const [mouseOverText, setMouseOverText] = useState(0)
 
     return(
-        <div className="body-card">
-            <div 
-                className="body-name"
-                style={{opacity: mouseOverText}}
+        <div 
+            className="body-thumbnails"
+            onClick={()=>(
+                setClickedBody(body.name)
+            )}
+            onMouseOver={()=>(
+                setMouseOverImage(.3),
+                setMouseOverText(1)
+            )}
+            onMouseLeave={()=>(
+                setMouseOverImage(1),
+                setMouseOverText(0)
+            )}
             >
+            <div className="body-name" style={{opacity: mouseOverText}}>
+
                 {body.name}
             </div>
             <img 
@@ -65,15 +94,30 @@ export default function BodyBar(){
                 src={body.image} 
                 alt={body.name} 
                 style={{opacity: mouseOverImage}}
-                onMouseOver={()=>(
-                    setMouseOverImage(.3),
-                    setMouseOverText(1)
-                    )}
-                onMouseLeave={()=>(
-                    setMouseOverImage(1),
-                    setMouseOverText(0)
-                    )}
             />
+        </div>
+    )
+  }
+
+  function MoonCard({moon}){
+
+    const [mouseOverImage, setMouseOverImage] = useState(1)
+    const [mouseOverText, setMouseOverText] = useState(0)
+
+    return(
+        <div 
+            className="body-thumbnails"
+            onMouseOver={()=>(
+                setMouseOverImage(.3),
+                setMouseOverText(1)
+            )}
+            onMouseLeave={()=>(
+                setMouseOverImage(1),
+                setMouseOverText(0)
+            )}
+            >
+            <div className="moon-name" style={{opacity: mouseOverText}}> {moon.name} </div>
+            <img className="moon-image" src={moon.image} alt={moon.name} style={{opacity: mouseOverImage}}/>
         </div>
     )
   }
