@@ -60,10 +60,13 @@ header {
 }
 
 
+.main-display{
+    display: flex;
+    justify-content: center;
+}
 
 
-
-.planet-card{ 
+.left-main-display{ 
     width: 35%;   
     justify-self: left
 }
