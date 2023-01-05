@@ -11,18 +11,21 @@ import {
 } from "react-router-dom";
 =======
 import React, { useEffect, useState } from "react";
+<<<<<<< HEAD
 import SettingsBar from "./SettingsBar";
 import BodyBar from "./BodyBar";
 import LeftBodyInfoCard from "./LeftBodyInfoCard"
 import RightBodyInfoCard from "./RightBodyInfoCard";
 >>>>>>> b825723ff2684fcd231d05539041624ae836d45f
+=======
+import HomePage from "./HomePage";
+import {createBrowserRouter,RouterProvider,} from "react-router-dom";
+>>>>>>> james
 
 export default function App() {
 
   //global states
   const [planetType, setPlanetType] = useState('planets')
-  const [tripLocation, setTripLocation] = useState('start')
-  
   const [clickedBody, setClickedBody] = useState()
 <<<<<<< HEAD
   const router = createRouterBrowser([
@@ -45,6 +48,7 @@ export default function App() {
   ]);
 =======
   const [clickedBodyObject, setClickedbodyObject] = useState()
+<<<<<<< HEAD
 
   const [leftObject, setLeftObject] = useState()
   const [rightObject, setRightObject] = useState()
@@ -80,6 +84,31 @@ export default function App() {
         <RightBodyInfoCard clickedBodyObject={rightObject} classname={"right-main-display"}/>
       </div>
 >>>>>>> b825723ff2684fcd231d05539041624ae836d45f
+=======
+  const router = createBrowserRouter([
+      {
+        path: "/",
+        element: <HomePage 
+        setPlanetType={setPlanetType}
+        planetType={planetType}
+        clickedBody={clickedBody}
+        setClickedBody={setClickedBody}
+        setClickedbodyObject={setClickedbodyObject}
+        clickedBodyObject={clickedBodyObject}/>
+      },
+      // {
+      //   path: "/PlanetProfile",
+      //   element: PlanetProfile,
+      // },
+      {
+        path: "*",
+        element: <div>404 NOT FOUND</div>
+      },
+  ])
+  return (
+    <div>
+      <RouterProvider router={router} />
+>>>>>>> james
     </div>
   );
 }
