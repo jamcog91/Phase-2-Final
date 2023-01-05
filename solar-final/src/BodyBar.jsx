@@ -50,12 +50,13 @@ export default function BodyBar({planetType}){
     }
 
     function populateBodyList(array){
-        console.log(array)
         array.map((body) => {
+            console.log(body)
             return(
                 <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
-            )
-        }) 
+                )
+            }) 
+        console.log(array)
     }
 
     return(
