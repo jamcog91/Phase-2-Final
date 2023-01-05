@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 
 
 export default function BodyInfoCard({clickedBodyObject}) {
@@ -24,6 +24,7 @@ export default function BodyInfoCard({clickedBodyObject}) {
                                 <h2 className="distance-from-sun">{clickedBodyObject.distanceFromSun}</h2>
                                 <h2 className="year-length">{clickedBodyObject.lengthOfYear}</h2>
                                 <h2 className="day-length">{clickedBodyObject.lengthOfDay}</h2>
+                                <Link to="/PlanetProfile">More Info!</Link>                            
                             </div>
                         </div>
                     </div>
