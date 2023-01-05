@@ -6,6 +6,7 @@ export default function BodyBar({planetType}){
     const [dwarfPlanetsArray, setDwarfPlanetsArray] = useState([])
     const [moonsArray, setMoonsArray] = useState([])
 
+    
     const fetchPlanets = async () => {
         const req = await fetch('http://localhost:3001/planets')
         const res = await req.json()
@@ -14,7 +15,7 @@ export default function BodyBar({planetType}){
     useEffect(() => {
         fetchPlanets()
     }, [])
-
+    
     const fetchDwarfPlanets = async () => {
         const req = await fetch('http://localhost:3001/dwarfPlanets')
         const res = await req.json()
@@ -23,7 +24,7 @@ export default function BodyBar({planetType}){
     useEffect(() => {
         fetchDwarfPlanets()
     },[])
-
+    
     const fetchMoons = async () => {
         const req = await fetch('http://localhost:3001/moons')
         const res = await req.json()
@@ -32,25 +33,42 @@ export default function BodyBar({planetType}){
     useEffect(() => {
         fetchMoons()
     },[])
-
     
+    
+    const [clickedBody, setClickedBody] = useState("")
+    const [planetsMoonArray, setPlanetsMoonArray] = useState([])
+
+    useEffect(() => {
+        createPlanetArray()
+    }, [clickedBody])
+
+    function createPlanetArray(){
+        const fillteredMoonArray = moonsArray.filter((moon) => {
+            return clickedBody === moon.parent
+        })
+        setPlanetsMoonArray(fillteredMoonArray)
+    }
+
+    function populateBodyList(array){
+        array.map((body) => {
+            console.log(body)
+            return(
+                <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
+                )
+            }) 
+        console.log(array)
+    }
 
     return(
         <>
             <div className="body-list">
                 {planetType === "dwarfPlanets"  
-                    ?
-                        dwarfPlanetsArray.map((body) => {
-                        return(
-                            <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
-                        )
-                    }) 
-                    :
-                    planetsArray.map((body) => {
-                        return(
-                            <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
-                        )
-                    })         
+                    ?   populateBodyList(dwarfPlanetsArray)                        
+                    :   planetsArray.map((body) => {
+                            return(
+                                <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
+                            )
+                        })         
                 }
             </div>
             <div className="body-list">
@@ -65,10 +83,11 @@ export default function BodyBar({planetType}){
   }
 
 
-  function BodyCard ({body}){
+
+  function BodyCard ({body, setClickedBody}){
 
     const [mouseOverImage, setMouseOverImage] = useState(1)
-    const [mouseOverText, setMouseOverText] = useState(0)
+    const [mouseOverText, setMouseOverText] = useState(0)   
 
     return(
         <div 
@@ -94,6 +113,7 @@ export default function BodyBar({planetType}){
                 src={body.image} 
                 alt={body.name} 
                 style={{opacity: mouseOverImage}}
+                
             />
         </div>
     )
