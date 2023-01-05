@@ -5,11 +5,13 @@ import MenuItem from '@mui/material/MenuItem';
 import { useState, useEffect } from 'react';
 
 //is in charge of the settings for the program such as which bodies to display
-export default function SettingsBar({ setPlanetType}) {
+export default function SettingsBar({ setPlanetType, setTripLocation, tripLocation}) {
 
-    //state to hold the value of the drop down bar
+    //state to hold the value of the drop down bars
     const [dropDownValue, setDropdownValue] = useState('');
-    //function to update the dropdown state when we change the drop down 
+    const [dropDownLocationValue, setDropDownLocationValue] = useState('')
+
+    //function to update the body type dropdown state when we change the drop down 
     const bodyTypeDropDownChange = (event) => {
         setDropdownValue(event.target.value);
     };
@@ -17,6 +19,16 @@ export default function SettingsBar({ setPlanetType}) {
     useEffect(() => {
         setPlanetType(dropDownValue)        
     }, [dropDownValue])
+
+
+    //function to update the location dropdown state when we change the drop down 
+    const locationDropDownChange = (event) => {
+        setDropDownLocationValue(event.target.value);       
+    };
+    //we use useEffect to stop an infinit loop 
+    useEffect(() => {
+        setTripLocation(dropDownLocationValue) 
+    }, [dropDownLocationValue])
 
     
     return(
@@ -33,6 +45,20 @@ export default function SettingsBar({ setPlanetType}) {
                 >                    
                     <MenuItem value={'planets'} >Planets</MenuItem>
                     <MenuItem value={'dwarfPlanets'}>Dwarf Planets</MenuItem>
+                </Select>
+            </FormControl>
+
+            <FormControl sx={{ m: 1, minWidth: 160 }} size="small" variant="filled">
+                <InputLabel>Location</InputLabel>
+                <Select
+                    className='select'
+                    value={dropDownLocationValue}
+                    defaultValue={'start'}
+                    label="Location"
+                    onChange={locationDropDownChange}
+                >                    
+                    <MenuItem value={'start'} >Start</MenuItem>
+                    <MenuItem value={'end'}>End</MenuItem>
                 </Select>
             </FormControl>
         </div>
