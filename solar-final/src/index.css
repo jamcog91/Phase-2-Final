@@ -1,14 +1,18 @@
 body {
     text-align: center;
-    color:rgb(255, 255, 255); 
-    background-color: rgb(0, 0, 0);    	
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+}
+
+.settings-bar {
+    background-color: rgb(144, 144, 144);
 }
 
 header {
     display: block;
     margin: auto;
     width: 90%;
-    padding: 0.5rem;    
+    padding: 0.5rem;
     color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
     font-size: 30px;
@@ -16,21 +20,21 @@ header {
 }
 
 .body-list {
-    display: flex;    
+    display: flex;
     overflow-x: scroll;
-    margin: 1rem;    
+    margin: 0rem;
 }
 
-.body-thumbnails{        
-    margin:auto;
+.body-thumbnails {
+    margin: auto;
 }
 
-.body-image {    
-    height: 150px;    
+.body-image {
+    height: 150px;
     cursor: pointer;
 }
 
-.body-name{
+.body-name {
     width: 100px;
     position: relative;
     font-size: 20pt;
@@ -38,4 +42,21 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
+}
+
+.moon-image {
+    height: 75px;
+    cursor: pointer;
+}
+
+.moon-name {
+    width: 70px;
+    position: relative;
+    font-size: 15pt;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.select {
+    color: red;
 }
