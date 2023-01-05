@@ -1,7 +1,7 @@
 
 
 
-export default function BodyCard({clickedBody}) {
+export default function BodyInfoCard({clickedBody}) {
 
 
     return(

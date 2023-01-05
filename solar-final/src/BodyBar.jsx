@@ -36,24 +36,29 @@ export default function BodyBar({planetType, clickedBody, setClickedBody}){
     
     
     const [planetsMoonArray, setPlanetsMoonArray] = useState([])
+    const [clickedBodyName, setClickedBodyName] = useState('')
 
     useEffect(() => {
         createPlanetArray()
-    }, [clickedBody])
+    }, [clickedBodyName])
 
     function createPlanetArray(){
         const fillteredMoonArray = moonsArray.filter((moon) => {
-            return clickedBody === moon.parent
+            return clickedBodyName === moon.parent
         })
         setPlanetsMoonArray(fillteredMoonArray)
     }
 
     
 
-    function populateBodyList(array){       
+    useEffect(()=>{
+        setPlanetsMoonArray([])
+    },[planetType])
+
+    function populateBodyList(array){
         return array.map((body) => {
             return(
-                <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
+                <BodyCard key={body.id} body={body} setClickedBodyName={setClickedBodyName}/>
             )
         }) 
     }
@@ -67,9 +72,9 @@ export default function BodyBar({planetType, clickedBody, setClickedBody}){
                 }
             </div>
             <div className="body-list">
-                {planetsMoonArray.map((moon) => {
+                {planetsMoonArray.map((body) => {
                     return(
-                        <MoonCard key={moon.id} moon={moon}/>
+                        <BodyCard key={body.id} body={body}/>
                     )
                 })}
             </div>
@@ -79,7 +84,7 @@ export default function BodyBar({planetType, clickedBody, setClickedBody}){
 
 
 
-  function BodyCard ({body, setClickedBody}){
+  function BodyCard ({body, setClickedBodyName}){
 
     const [mouseOverImage, setMouseOverImage] = useState(1)
     const [mouseOverText, setMouseOverText] = useState(0)   
@@ -88,7 +93,7 @@ export default function BodyBar({planetType, clickedBody, setClickedBody}){
         <div 
             className="body-thumbnails"
             onClick={()=>(
-                setClickedBody(body.name)
+                setClickedBodyName(body.name)
             )}
             onMouseOver={()=>(
                 setMouseOverImage(.3),
@@ -99,40 +104,18 @@ export default function BodyBar({planetType, clickedBody, setClickedBody}){
                 setMouseOverText(0)
             )}
             >
-            <div className="body-name" style={{opacity: mouseOverText}}>
-
-                {body.name}
+            <div 
+                className={body.type === "satellite" ? "moon-name" : "body-name"} 
+                style={{opacity: mouseOverText}}> 
+                {body.name} 
             </div>
             <img 
-                className="body-image" 
+                className={body.type === "satellite" ? "moon-image" : "body-image"} 
                 src={body.image} 
                 alt={body.name} 
                 style={{opacity: mouseOverImage}}
                 
             />
-        </div>
-    )
-  }
-
-  function MoonCard({moon}){
-
-    const [mouseOverImage, setMouseOverImage] = useState(1)
-    const [mouseOverText, setMouseOverText] = useState(0)
-
-    return(
-        <div 
-            className="body-thumbnails"
-            onMouseOver={()=>(
-                setMouseOverImage(.3),
-                setMouseOverText(1)
-            )}
-            onMouseLeave={()=>(
-                setMouseOverImage(1),
-                setMouseOverText(0)
-            )}
-            >
-            <div className="moon-name" style={{opacity: mouseOverText}}> {moon.name} </div>
-            <img className="moon-image" src={moon.image} alt={moon.name} style={{opacity: mouseOverImage}}/>
         </div>
     )
   }
