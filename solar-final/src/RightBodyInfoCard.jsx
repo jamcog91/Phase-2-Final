@@ -51,7 +51,7 @@ export default function RightBodyInfoCard({clickedBodyObject, className}) {
         return(     
             <div className="left-main-display">
                 <div className="planet">
-                    <div className="circle"></div>
+                <h1 className="location-text">End Location</h1>
                     <img className="main-planet-detail-image" alt="planetImage" src={clickedBodyObject.image}></img>
                 </div>
                 <div className="info">
