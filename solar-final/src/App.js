@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SettingsBar from "./SettingsBar";
 import BodyBar from "./BodyBar";
+import PlanetCards from "./PlanetCards"
 
 export default function App() {
 
@@ -13,6 +14,7 @@ export default function App() {
         <SettingsBar setPlanetType={setPlanetType}/>
         <BodyBar planetType={planetType}/>
       </header>
+      <PlanetCards />
     </div>
   );
 }

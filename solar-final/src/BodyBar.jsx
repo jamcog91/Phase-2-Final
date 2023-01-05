@@ -101,8 +101,10 @@ export default function BodyBar({planetType}){
             )}
             >
             <div className="body-name" style={{opacity: mouseOverText}}>
+
                 {body.name}
             </div>
+            <h1>Harry</h1>
             <img 
                 className="body-image" 
                 src={body.image} 
