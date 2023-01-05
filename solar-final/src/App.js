@@ -14,7 +14,7 @@ export default function App() {
         <SettingsBar setPlanetType={setPlanetType}/>
         <BodyBar planetType={planetType}/>
       </header>
-      <PlanetCards />
+      {/* <PlanetCards /> */}
     </div>
   );
 }

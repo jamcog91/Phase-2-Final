@@ -49,22 +49,25 @@ export default function BodyBar({planetType}){
         setPlanetsMoonArray(fillteredMoonArray)
     }
 
+    function populateBodyList(array){
+        console.log(array)
+        array.map((body) => {
+            return(
+                <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
+            )
+        }) 
+    }
+
     return(
         <>
             <div className="body-list">
                 {planetType === "dwarfPlanets"  
-                    ?
-                        dwarfPlanetsArray.map((body) => {
-                        return(
-                            <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
-                        )
-                    }) 
-                    :
-                    planetsArray.map((body) => {
-                        return(
-                            <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
-                        )
-                    })         
+                    ?   populateBodyList(dwarfPlanetsArray)                        
+                    :   planetsArray.map((body) => {
+                            return(
+                                <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
+                            )
+                        })         
                 }
             </div>
             <div className="body-list">
@@ -104,7 +107,6 @@ export default function BodyBar({planetType}){
 
                 {body.name}
             </div>
-            <h1>Harry</h1>
             <img 
                 className="body-image" 
                 src={body.image} 
