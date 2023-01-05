@@ -23,8 +23,8 @@ export default function SettingsBar({ setPlanetType}) {
     
 
     return(
-        <div>
-            <FormControl sx={{ m: 1, minWidth: 160 }} size="small" error>
+        <div className='settings-bar'>
+            <FormControl sx={{ m: 1, minWidth: 160 }} size="small" variant="filled">
                 <InputLabel>Body Type</InputLabel>
                 <Select
                     className='select'
@@ -33,7 +33,7 @@ export default function SettingsBar({ setPlanetType}) {
                     label="Body Type"
                     onChange={bodyTypeDropDownChange}
                 >                    
-                    <MenuItem value={'planets'}>Planets</MenuItem>
+                    <MenuItem value={'planets'} >Planets</MenuItem>
                     <MenuItem value={'dwarfPlanets'}>Dwarf Planets</MenuItem>
                 </Select>
             </FormControl>

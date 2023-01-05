@@ -4,6 +4,10 @@ body {
     background-color: rgb(0, 0, 0);    	
 }
 
+.settings-bar {
+    background-color: rgb(144, 144, 144);
+}
+
 header {
     display: block;
     margin: auto;
