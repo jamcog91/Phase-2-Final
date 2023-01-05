@@ -59,6 +59,25 @@ header {
     opacity: 0;
 }
 
-.select {
-    color: red;
+
+.main-display{
+    display: flex;
+    justify-content: center;
+}
+
+
+.left-main-display{ 
+    width: 35%;   
+    justify-self: left
+}
+
+.main-planet-detail-image{
+    width: 90%;
+}
+
+.main-info{
+    width: 30%;
+    margin-right: 5px;
+    margin-right: 5px;
+    justify-self: center;    
 }
