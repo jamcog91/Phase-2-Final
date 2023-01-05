@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function BodyBar({planetType}){
+export default function BodyBar({planetType, clickedBody, setClickedBody}){
 
     const [planetsArray, setPlanetsArray] = useState([])
     const [dwarfPlanetsArray, setDwarfPlanetsArray] = useState([])
@@ -35,7 +35,6 @@ export default function BodyBar({planetType}){
     },[])
     
     
-    const [clickedBody, setClickedBody] = useState("")
     const [planetsMoonArray, setPlanetsMoonArray] = useState([])
 
     useEffect(() => {
@@ -49,26 +48,22 @@ export default function BodyBar({planetType}){
         setPlanetsMoonArray(fillteredMoonArray)
     }
 
-    function populateBodyList(array){
-        array.map((body) => {
-            console.log(body)
+    
+
+    function populateBodyList(array){       
+        return array.map((body) => {
             return(
                 <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
-                )
-            }) 
-        console.log(array)
+            )
+        }) 
     }
 
     return(
         <>
             <div className="body-list">
                 {planetType === "dwarfPlanets"  
-                    ?   populateBodyList(dwarfPlanetsArray)                        
-                    :   planetsArray.map((body) => {
-                            return(
-                                <BodyCard key={body.id} body={body} clickedBody={clickedBody} setClickedBody={setClickedBody}/>
-                            )
-                        })         
+                    ?   populateBodyList(dwarfPlanetsArray)                       
+                    :   populateBodyList(planetsArray)       
                 }
             </div>
             <div className="body-list">
