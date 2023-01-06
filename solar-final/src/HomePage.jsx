@@ -36,9 +36,7 @@ const [tripLocation, setTripLocation] = useState('start')
         <LeftBodyInfoCard clickedBodyObject={leftObject} classname={"left-main-display"}/>
         <RightBodyInfoCard clickedBodyObject={rightObject} classname={"right-main-display"}/>
       </div>
-      {/* <PlanetProfile 
-       
-      /> */}
+     
      </div>
     )  
 }
