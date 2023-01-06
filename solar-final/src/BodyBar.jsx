@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"
+
 
 //builds the bar at the top of the screen that holds all the planet images
 export default function BodyBar({planetType, clickedBody, setClickedBody, setClickedbodyObject, clickedBodyObject}){
@@ -149,3 +148,5 @@ function BodyCard ({body, setClickedBodyName, setClickedBody,setClickedbodyObjec
         </div>
     )
 }
+
+
