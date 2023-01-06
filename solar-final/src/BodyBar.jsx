@@ -145,7 +145,7 @@ function BodyCard ({body, setClickedBodyName, setClickedBody,setClickedbodyObjec
                 alt={body.name} 
                 style={{opacity: mouseOverImage}}
                  />
-            <button onClick={() => navigate("/")}>Learn More!</button>
+            <button class="learn-more-btn" onClick={() => navigate("/")}>Learn More!</button>
         </div>
     )
 }

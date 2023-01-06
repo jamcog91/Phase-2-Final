@@ -87,3 +87,7 @@ header {
 .select {
     background-color: black;
 }
+
+.learn-more-btn {
+    border-radius: 15px;
+}
