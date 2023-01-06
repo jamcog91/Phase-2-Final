@@ -22,19 +22,23 @@ const [tripLocation, setTripLocation] = useState('start')
     return(
         <div>
           <header>
-            <h3>Space Travel Simulator</h3>
+            <h3 className="title">Space Travel Simulator</h3>
                 <SettingsBar setPlanetType={setPlanetType} setTripLocation={setTripLocation}/>
                     <BodyBar 
                         planetType={planetType} 
                         clickedBody={clickedBody} 
                         setClickedBody={setClickedBody} 
-                        setClickedbodyObject={setClickedbodyObject}/>
+                        setClickedbodyObject={setClickedbodyObject}
+                        clickedBodyObject={clickedBodyObject}/>
             </header>
           <div className="main-display">
         <LeftBodyInfoCard clickedBodyObject={leftObject} classname={"left-main-display"}/>
         <RightBodyInfoCard clickedBodyObject={rightObject} classname={"right-main-display"}/>
       </div>
+      {/* <PlanetProfile 
+       
+      /> */}
      </div>
-    )
+    )  
 }
 export default HomePage
