@@ -6,17 +6,17 @@ import RightBodyInfoCard from "./RightBodyInfoCard";
 
 export default function App() {
 
-  //global states
+  //states that keep track of the drop down values
   const [planetType, setPlanetType] = useState('planets')
   const [tripLocation, setTripLocation] = useState('start')
-  
+  //states used in setting what planet was clicked
   const [clickedBody, setClickedBody] = useState()
   const [clickedBodyObject, setClickedbodyObject] = useState()
-
+  //used to push the clicked push the clicked object to the left or right displah
   const [leftObject, setLeftObject] = useState()
   const [rightObject, setRightObject] = useState()
 
-
+  //checks which way we should push the object aka: which display to update
   useEffect(()=>{
     tripLocation === "end" ? setRightObject(clickedBodyObject) : setLeftObject(clickedBodyObject)
   },[clickedBodyObject])
