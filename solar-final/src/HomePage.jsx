@@ -1,3 +1,4 @@
+
 import SettingsBar from "./SettingsBar";
 import BodyBar from "./BodyBar";
 import LeftBodyInfoCard from "./LeftBodyInfoCard"
@@ -42,3 +43,4 @@ const [tripLocation, setTripLocation] = useState('start')
     )  
 }
 export default HomePage
+
