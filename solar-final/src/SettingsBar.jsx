@@ -3,6 +3,7 @@ import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 //is in charge of the settings for the program such as which bodies to display
 export default function SettingsBar({ setPlanetType, setTripLocation, tripLocation}) {
@@ -10,6 +11,7 @@ export default function SettingsBar({ setPlanetType, setTripLocation, tripLocati
     //state to hold the value of the drop down bars
     const [dropDownValue, setDropdownValue] = useState('');
     const [dropDownLocationValue, setDropDownLocationValue] = useState('')
+    const navigate = useNavigate()
 
     //function to update the body type dropdown state when we change the drop down 
     const bodyTypeDropDownChange = (event) => {
@@ -61,6 +63,11 @@ export default function SettingsBar({ setPlanetType, setTripLocation, tripLocati
                     <MenuItem value={'end'}>End</MenuItem>
                 </Select>
             </FormControl>
+            <button className="btn" onClick={() => navigate('/About')}>About</button>
+            <button className="btn" onClick={() => navigate('/AddPlanetForm')}>Submit Planet</button>
+            <button className="btn" onClick={() => navigate('/MoonArray')}>Moon List</button>
+
+
         </div>
     )
 }
