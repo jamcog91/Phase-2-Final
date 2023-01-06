@@ -1,4 +1,5 @@
 function PlanetProfile({clickedBodyObject}) {
+    console.log(clickedBodyObject)
     return(
         <div className="PlanetProfile">
             <div className="Planet-container">

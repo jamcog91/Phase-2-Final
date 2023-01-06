@@ -21,7 +21,7 @@ export default function App() {
       },
       // {
       //   path: "/PlanetProfile",
-      //   element: PlanetProfile,
+      //   element: <PlanetProfile clickedBodyObject={clickedBodyObject}/>,
       // },
       {
         path: "*",
