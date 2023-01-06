@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-
+import { useNavigate } from "react-router-dom"
 
 //builds a card that displays the info of the ody that was clicked
 export default function LeftBodyInfoCard({clickedBodyObject, className}) {
@@ -8,6 +8,8 @@ export default function LeftBodyInfoCard({clickedBodyObject, className}) {
     const [bodyDistanceFromSun, setBodyDistanceFromSun] = useState("")
     const [yearLenght, setYearLength]  = useState('')
     const [dayLength, setDayLength] =useState('')
+    const navigate = useNavigate()
+    
 
     //sets the distance of the body
     function displayDistance(body){
@@ -60,6 +62,7 @@ export default function LeftBodyInfoCard({clickedBodyObject, className}) {
                         <h2 className="distance-from-sun">{bodyDistanceFromSun}</h2>
                         <h2 className="year-length">{yearLenght}</h2>
                         <h2 className="day-length">{dayLength}</h2>
+                        <button onClick={() => navigate("./PlanetProfile")}>More Info</button>
                     </div>
                 </div>
             </div>            

@@ -6,6 +6,9 @@ body {
 
 .settings-bar {
     background-color: rgb(144, 144, 144);
+    border-radius: 30px;
+    width: 500px;
+    margin-left: 450px;
 }
 
 header {
@@ -80,4 +83,11 @@ header {
     margin-right: 5px;
     margin-right: 5px;
     justify-self: center;    
+}
+.select {
+    background-color: black;
+}
+
+.learn-more-btn {
+    border-radius: 15px;
 }
