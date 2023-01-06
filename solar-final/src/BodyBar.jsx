@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"
+
 
 //builds the bar at the top of the screen that holds all the planet images
 export default function BodyBar({planetType, clickedBody, setClickedBody, setClickedbodyObject, clickedBodyObject}){
@@ -103,7 +103,6 @@ export default function BodyBar({planetType, clickedBody, setClickedBody, setCli
 //builds each indvidual planet thumbnail on the planet bar
 function BodyCard ({body, setClickedBodyName, setClickedBody,setClickedbodyObject, clickedBody}){
     //states to hold the opacity if the thumbnails when the mouse goes over them
-    const navigate = useNavigate()
     const [mouseOverImage, setMouseOverImage] = useState(1)
     const [mouseOverText, setMouseOverText] = useState(0)
 
@@ -146,7 +145,6 @@ function BodyCard ({body, setClickedBodyName, setClickedBody,setClickedbodyObjec
                 alt={body.name} 
                 style={{opacity: mouseOverImage}}
                  />
-            <button class="learn-more-btn" onClick={() => navigate("/")}>Learn More!</button>
         </div>
     )
 }
