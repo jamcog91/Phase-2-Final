@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import HomePage from "./HomePage";
+import About from "./About";
+import MoonArray from "./MoonArray";
 import {createBrowserRouter,RouterProvider,} from "react-router-dom";
+import AddPlanetForm from "./AddPlanetForm";
 
 export default function App() {
 
@@ -19,10 +22,18 @@ export default function App() {
         setClickedbodyObject={setClickedbodyObject}
         clickedBodyObject={clickedBodyObject}/>
       },
-      // {
-      //   path: "/PlanetProfile",
-      //   element: <PlanetProfile clickedBodyObject={clickedBodyObject}/>,
-      // },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/AddPlanetForm",
+        element: <AddPlanetForm />,
+      },
+      {
+        path: "/MoonArray",
+        element: <MoonArray />,
+      },
       {
         path: "*",
         element: <div>404 NOT FOUND</div>

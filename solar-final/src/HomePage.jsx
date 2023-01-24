@@ -30,7 +30,8 @@ const [tripLocation, setTripLocation] = useState('start')
                         clickedBody={clickedBody} 
                         setClickedBody={setClickedBody} 
                         setClickedbodyObject={setClickedbodyObject}
-                        clickedBodyObject={clickedBodyObject}/>
+                        clickedBodyObject={clickedBodyObject}
+                    />
             </header>
           <div className="main-display">
         <LeftBodyInfoCard clickedBodyObject={leftObject} classname={"left-main-display"}/>
